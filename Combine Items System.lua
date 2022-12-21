@@ -1,8 +1,8 @@
         -- Мои рассширения стандартного API WarCraft III
         function UnitRemoveItemById (unit,id,amount)
-            local c = amount + 1
-            local d = 0
-            for i = 0, 5 do
+            local c = amount
+            local d = -1
+            for i = 0, (bj_MAX_INVENTORY - 1) do
                 d = d + 1
                 if GetItemTypeId(UnitItemInSlot(unit,i)) == id  then
                     RemoveItem(UnitItemInSlot(unit,i))
