@@ -1,5 +1,6 @@
         -- Ссылка на конвертер четырёхсимвольного кода https://ubershmekel.github.io/fourcc-to-text/
-        -- Мои рассширения стандартного API WarCraft III
+
+        -- В стандартном API есть функция UnitAddItemById, но нет UnitRemoveItemById. Эта функция исправляет данное недоразумение.
         function UnitRemoveItemById(unit, id, amount, slot)
             if slot == 6 then
                 return
