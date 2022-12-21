@@ -1,13 +1,18 @@
         -- Мои рассширения стандартного API WarCraft III
-        function UnitRemoveItemById (unit,id,amount)
-            local c = amount
-            local d = -1
-            for i = 0, (bj_MAX_INVENTORY - 1) do
-                d = d + 1
-                if GetItemTypeId(UnitItemInSlot(unit,i)) == id  then
-                    RemoveItem(UnitItemInSlot(unit,i))
-                    if d == c then return end
-                end
+        function UnitRemoveItemById(unit, id, amount, slot)
+            if slot == 6 then
+                return
+            end
+
+            local item = UnitItemInSlot(unit, slot)
+
+            if GetItemTypeId(item) == id then
+                RemoveItem(item)
+                amount = amount - 1
+            end
+
+            if amount > 0 then
+                UnitRemoveItemById(unit, id, amount, slot + 1)
             end
         end
 
@@ -79,7 +84,7 @@
                 -- Удаляем все предметы из списка
                 for key, value in pairs(COMBINATIONS[id_successful_combo]) do
                     if  key ~= 1 then
-                        UnitRemoveItemById(unit,key,value)
+                        UnitRemoveItemById(unit,key,value,0)
                     end
                 end
                 -- Добавляем результат комбинации в инвентарь юнита
