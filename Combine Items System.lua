@@ -51,7 +51,10 @@
         end
 
 
-        -- Триггеры
+        --[[
+             Триггеры. Здесь создаётся герой и к нему привязывается триггер, это сугубо для примера. Реализацию можно сделать глобальной, но можно и 
+             определить тех героев, для которых эта функция будет работат. Зависит от реализации в конкретной карте.
+          ]]
         COMBINE_ITEMS_SYS_TRG = CreateTrigger()
         TriggerRegisterUnitEvent(COMBINE_ITEMS_SYS_TRG,CreateUnit(Player(0),FourCC('Hmkg'),0,0,270.0),EVENT_UNIT_PICKUP_ITEM)
         TriggerAddAction(COMBINE_ITEMS_SYS_TRG,function()
