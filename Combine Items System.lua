@@ -1,3 +1,4 @@
+        -- Ссылка на конвертер четырёхсимвольного кода https://ubershmekel.github.io/fourcc-to-text/
         -- Мои рассширения стандартного API WarCraft III
         function UnitRemoveItemById(unit, id, amount, slot)
             if slot == 6 then
