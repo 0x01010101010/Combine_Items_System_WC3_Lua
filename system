@@ -1,4 +1,4 @@
-        -- Мои рассширения стандартного API
+        -- Мои рассширения стандартного API WarCraft III
         function UnitRemoveItemById (unit,id,amount)
             local c = amount + 1
             local d = 0
