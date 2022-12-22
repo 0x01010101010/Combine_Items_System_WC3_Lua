@@ -1,6 +1,6 @@
         -- Ссылка на конвертер четырёхсимвольного кода https://ubershmekel.github.io/fourcc-to-text/
 
-        -- В стандартном API есть функция UnitAddItemById, но нет UnitRemoveItemById. Эта функция исправляет данное недоразумение.
+        -- В стандартном API есть функция UnitAddItemById, но нет UnitRemoveItemById. Эта функция исправляет данное недоразумение. Slot всегда должен быть равен 0.
         function UnitRemoveItemById(unit, id, amount, slot)
             if slot == 6 then
                 return
