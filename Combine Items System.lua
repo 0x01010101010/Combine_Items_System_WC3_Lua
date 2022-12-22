@@ -18,6 +18,15 @@
             end
         end
 
+        -- Функция подсчёта элементов таблицы с непоследовательными индексами
+        function countElements(t)
+            local count = 0
+            for _ in pairs(t) do
+                count = count + 1
+            end
+            return count
+        end
+
         -- Список комбинайций. За индексом 1 в списке комбинаций предмет, получаемый в результате сборки.
         COMBINATIONS = {
             {
@@ -41,13 +50,9 @@
 
         }
 
-        -- Функция подсчёта элементов таблицы с непоследовательными индексами
-        function countElements(t)
-            local count = 0
-            for _ in pairs(t) do
-                count = count + 1
-            end
-            return count
+        -- Заносим количество типов предметов в таблицу
+        for i = 1, #COMBINATIONS do
+            COMBINATIONS[i][2] = countElements(COMBINATIONS[i]) - 1
         end
 
 
@@ -78,7 +83,7 @@
                 for key, value in pairs(COMBINATIONS[i]) do
                     if COMBINATIONS[i][key] == inventory[key] then
                         combo = combo + 1
-                        if combo == (countElements(COMBINATIONS[i]) - 1) then
+                        if combo == COMBINATIONS[i][2] then
                              id_successful_combo = i
                         end
                     end
